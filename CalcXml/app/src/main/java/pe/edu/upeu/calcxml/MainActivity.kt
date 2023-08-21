@@ -1,11 +1,21 @@
 package pe.edu.upeu.calcxml
 
+import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.Button
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ComposeView
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +29,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         valorResultado = findViewById(R.id.txtResult)
         setupButtons()
+
+        val composeView = findViewById<ComposeView>(R.id.compseExample)
+        composeView.setContent {
+            MyButton()
+        }
     }
 
     private fun setupButtons() {
@@ -85,6 +100,30 @@ class MainActivity : AppCompatActivity() {
         }
         valorResultado.setText(result.toString())
         operadorActual = ""
+    }
+
+    @Composable
+    fun MyButton() {
+        val toast = Toast.makeText(this, "Hola Mundo", Toast.LENGTH_LONG) // in Activity
+        val contx=this
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.Top,
+            horizontalArrangement = Arrangement.SpaceAround
+        ) {
+            Button(
+                onClick = {
+                toast.view!!.getBackground().setColorFilter(android.graphics.Color.CYAN,PorterDuff.Mode.SRC_IN)
+                toast.show()
+            }) {
+                androidx.compose.material.Text(text = "Boton1!")
+            }
+            Button(onClick = {
+                Toast.makeText(contx, "Hola Mundo 2", Toast.LENGTH_LONG).show()
+            }) {
+                androidx.compose.material.Text(text = "Boton2!")
+            }
+        }
     }
 
 }

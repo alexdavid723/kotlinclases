@@ -187,4 +187,13 @@
         app:layout_constraintEnd_toEndOf="@+id/btnMult"
         app:layout_constraintStart_toEndOf="@+id/btnIgual"
         app:layout_constraintTop_toTopOf="@+id/btnIgual" />
+
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/compseExample"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/btnDiv"
+        app:layout_constraintStart_toStartOf="@+id/btn0"
+        app:layout_constraintTop_toBottomOf="@+id/btn0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
