@@ -252,6 +252,7 @@ fun CalcUPeU() {
                 modifier = Modifier.height(100.dp),
                 onValueChange = { textState = it }
             )
+
             Column(modifier = Modifier.fillMaxSize()) {
                 var listA = listOf<String>("AC", ".", "%", "/")
                 var listB = listOf<String>("7", "8", "9", "*")
@@ -259,6 +260,7 @@ fun CalcUPeU() {
                 var listD = listOf<String>("1", "2", "3", "-")
                 var listE = listOf<String>("0", "=")
                 var listaCompleta = listOf<List<String>>(listA, listB, listC, listD, listE)
+
                 listaCompleta.forEach {
                     CalculatorFirstRow(
                         isNewOp = isNewOp,
