@@ -12,6 +12,7 @@ import pe.edu.upeu.asistenciaupeujc.ui.presentation.screens.Pantalla1
 import pe.edu.upeu.asistenciaupeujc.ui.presentation.screens.Pantalla2
 import pe.edu.upeu.asistenciaupeujc.ui.presentation.screens.Pantalla3
 import pe.edu.upeu.asistenciaupeujc.ui.presentation.screens.Pantalla4
+import pe.edu.upeu.asistenciaupeujc.ui.presentation.screens.Pantalla5
 
 @Composable
 fun NavigationHost(
@@ -41,5 +42,7 @@ fun NavigationHost(
         }
         composable(Destinations.Pantalla3.route) { Pantalla3() }
         composable(Destinations.Pantalla4.route) { Pantalla4() }
+
+        composable(Destinations.Pantalla5.route) { Pantalla5() }
     }
 }

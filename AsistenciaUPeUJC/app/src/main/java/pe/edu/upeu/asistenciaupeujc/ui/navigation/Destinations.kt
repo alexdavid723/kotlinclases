@@ -1,6 +1,7 @@
 package pe.edu.upeu.asistenciaupeujc.ui.navigation
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
@@ -18,4 +19,6 @@ sealed class Destinations(
     }
     object Pantalla3 : Destinations("pantalla3", "Pantalla 3", Icons.Filled.Favorite)
     object Pantalla4 : Destinations("pantalla4", "Pantalla 4x", Icons.Filled.Face )
+
+    object Pantalla5 : Destinations("pantalla5", "Pantalla 5x", Icons.Filled.AccountCircle )
 }

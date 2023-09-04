@@ -97,7 +97,8 @@ fun MainScreen(
         Destinations.Pantalla1,
         Destinations.Pantalla2,
         Destinations.Pantalla3,
-        Destinations.Pantalla4
+        Destinations.Pantalla4,
+        Destinations.Pantalla5
     )
     val navigationItems2 = listOf(
         Destinations.Pantalla1,
