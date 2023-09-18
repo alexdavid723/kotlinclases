@@ -70,6 +70,7 @@ class MainActivity : ComponentActivity() {
             val themeType=remember{ mutableStateOf(ThemeType.RED) }
             val darkThemex= isSystemInDarkTheme()
             val darkTheme = remember { mutableStateOf(darkThemex) }
+
             val colorScheme=when(themeType.value){
                 ThemeType.PURPLE->{if (darkTheme.value) DarkPurpleColors else LightPurpleColors}
                 ThemeType.RED->{if (darkTheme.value) DarkRedColors else LightRedColors}
