@@ -39,6 +39,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import pe.edu.upeu.asistenciaupeujc.ui.navigation.Destinations
 import pe.edu.upeu.asistenciaupeujc.ui.navigation.NavigationHost
@@ -59,6 +60,7 @@ import pe.edu.upeu.asistenciaupeujc.ui.theme.LightRedColors
 import pe.edu.upeu.asistenciaupeujc.ui.theme.ThemeType
 import pe.edu.upeu.asistenciaupeujc.utils.TokenUtils
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         WindowCompat.setDecorFitsSystemWindows(window,true)
@@ -175,6 +177,7 @@ fun MainScreen(
             }, modifier = Modifier,
             floatingActionButton = {
                 MultiFloatingActionButton(
+                    navController=navController,
                     fabIcon = Icons.Filled.Add,
                     items = fabItems,
                     showLabels = true

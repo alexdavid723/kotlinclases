@@ -61,10 +61,10 @@ fun CustomTopAppBar(
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
-    /*if (currentRoute == null || currentRoute == Destinations.Login.route)
+    if (currentRoute == null || currentRoute == Destinations.Login.route)
     {
         return
-    }*/
+    }
     Box(
         modifier = Modifier
             .height(80.dp)
