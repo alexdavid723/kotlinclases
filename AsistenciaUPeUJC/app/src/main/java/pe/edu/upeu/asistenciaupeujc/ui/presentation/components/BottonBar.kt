@@ -15,7 +15,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import pe.edu.upeu.asistenciaupeujc.ui.navigation.Destinations
 
 @Composable
-fun BottomNavigationBar(navController: NavHostController) {
+fun BottomNavigationBar(items: List<Destinations>, navController: NavHostController) {
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoutex = navBackStackEntry?.destination?.route
@@ -24,11 +24,11 @@ fun BottomNavigationBar(navController: NavHostController) {
         return
     }
 
-    val items = listOf(
+    /*val items = listOf(
         Destinations.Pantalla1,
         Destinations.Pantalla2,
         Destinations.Pantalla3,
-    )
+    )*/
     var selectedItem by remember { mutableStateOf(0) }
     var currentRoute by remember { mutableStateOf(Destinations.Pantalla1.route) }
 

@@ -1,10 +1,16 @@
 package pe.edu.upeu.asistenciaupeujc.di
 
+import android.content.Context
+import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
+import pe.edu.upeu.asistenciaupeujc.data.local.DbDataSource
+import pe.edu.upeu.asistenciaupeujc.data.local.dao.ActividadDao
+import pe.edu.upeu.asistenciaupeujc.data.remote.RestActividad
 import pe.edu.upeu.asistenciaupeujc.data.remote.RestUsuario
 import pe.edu.upeu.asistenciaupeujc.utils.TokenUtils
 import retrofit2.Retrofit
@@ -46,5 +52,24 @@ class DataSourceModule {
         return retrofit.create(RestUsuario::class.java)
     }
 
+    @Singleton
+    @Provides
+    fun restActividad(retrofit: Retrofit):RestActividad{
+        return retrofit.create(RestActividad::class.java)
+    }
+
+
+    @Singleton
+    @Provides
+    fun dbDataSource(@ApplicationContext context:Context):DbDataSource{
+        return Room.databaseBuilder(context, DbDataSource::class.java, "eventoasistencia_db")
+            .fallbackToDestructiveMigration().build()
+    }
+
+    @Singleton
+    @Provides
+    fun actividadDao(db:DbDataSource):ActividadDao{
+        return db.actividadDao()
+    }
 
 }
