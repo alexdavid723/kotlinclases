@@ -10,7 +10,9 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import pe.edu.upeu.asistenciaupeujc.data.local.DbDataSource
 import pe.edu.upeu.asistenciaupeujc.data.local.dao.ActividadDao
+import pe.edu.upeu.asistenciaupeujc.data.local.dao.MaterialesxDao
 import pe.edu.upeu.asistenciaupeujc.data.remote.RestActividad
+import pe.edu.upeu.asistenciaupeujc.data.remote.RestMaterialesx
 import pe.edu.upeu.asistenciaupeujc.data.remote.RestUsuario
 import pe.edu.upeu.asistenciaupeujc.utils.TokenUtils
 import retrofit2.Retrofit
@@ -57,7 +59,11 @@ class DataSourceModule {
     fun restActividad(retrofit: Retrofit):RestActividad{
         return retrofit.create(RestActividad::class.java)
     }
-
+    @Singleton
+    @Provides
+    fun restMaterialesx(retrofit: Retrofit): RestMaterialesx {
+        return retrofit.create(RestMaterialesx::class.java)
+    }
 
     @Singleton
     @Provides
@@ -71,5 +77,9 @@ class DataSourceModule {
     fun actividadDao(db:DbDataSource):ActividadDao{
         return db.actividadDao()
     }
-
+    @Singleton
+    @Provides
+    fun materialesxDao(db:DbDataSource): MaterialesxDao {
+        return db.materialesxDao()
+    }
 }
