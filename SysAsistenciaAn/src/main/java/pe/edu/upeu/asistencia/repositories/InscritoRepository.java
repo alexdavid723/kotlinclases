@@ -6,7 +6,10 @@ package pe.edu.upeu.asistencia.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import pe.edu.upeu.asistencia.models.Actividad;
 import pe.edu.upeu.asistencia.models.Inscrito;
+
+import java.util.Optional;
 
 /**
  *
@@ -14,5 +17,6 @@ import pe.edu.upeu.asistencia.models.Inscrito;
  */
 @Repository
 public interface InscritoRepository extends JpaRepository<Inscrito, Long>{
+    Optional<Inscrito> findByNombreInscrito(String nombreinscrito);
     
 }

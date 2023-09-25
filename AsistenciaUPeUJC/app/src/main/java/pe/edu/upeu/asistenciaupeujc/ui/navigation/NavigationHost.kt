@@ -15,6 +15,8 @@ import pe.edu.upeu.asistenciaupeujc.ui.presentation.screens.Pantalla4
 import pe.edu.upeu.asistenciaupeujc.ui.presentation.screens.Pantalla5
 import pe.edu.upeu.asistenciaupeujc.ui.presentation.screens.actividad.ActividadForm
 import pe.edu.upeu.asistenciaupeujc.ui.presentation.screens.actividad.ActividadUI
+import pe.edu.upeu.asistenciaupeujc.ui.presentation.screens.inscritos.InscritoForm
+import pe.edu.upeu.asistenciaupeujc.ui.presentation.screens.inscritos.InscritoUI
 import pe.edu.upeu.asistenciaupeujc.ui.presentation.screens.login.LoginScreen
 import pe.edu.upeu.asistenciaupeujc.ui.presentation.screens.materialesx.MaterialesxForm
 import pe.edu.upeu.asistenciaupeujc.ui.presentation.screens.materialesx.MaterialesxUI
@@ -54,6 +56,17 @@ fun NavigationHost(
 
         composable(Destinations.Pantalla5.route) { Pantalla5() }
 
+        composable(Destinations.InscritoUI.route){
+            InscritoUI(navegarEditarInsc = {newText->navController.navigate(Destinations.InscritoForm.passId(newText))}, navController = navController)
+        }
+        composable(Destinations.InscritoForm.route, arguments = listOf(navArgument("inscrId"){
+            defaultValue="inscrId"
+        })){
+                navBackStackEntry -> var inscrId=navBackStackEntry.arguments?.getString("inscrId")
+            requireNotNull(inscrId)
+            InscritoForm(text = inscrId, darkMode = darkMode, navController = navController)
+        }
+
         composable(Destinations.ActividadUI.route){
             ActividadUI(navegarEditarAct = {newText->navController.navigate(Destinations.ActividadForm.passId(newText))}, navController =navController )
         }
@@ -61,7 +74,7 @@ fun NavigationHost(
         composable(Destinations.ActividadForm.route, arguments = listOf(navArgument("actId"){
             defaultValue="actId"
         })){
-            navBackStackEntry -> var actId=navBackStackEntry.arguments?.getString("actId")
+                navBackStackEntry -> var actId=navBackStackEntry.arguments?.getString("actId")
             requireNotNull(actId)
             ActividadForm(text = actId, darkMode = darkMode, navController =navController )
         }

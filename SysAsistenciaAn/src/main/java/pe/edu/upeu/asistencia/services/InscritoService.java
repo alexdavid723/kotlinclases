@@ -14,7 +14,7 @@ import pe.edu.upeu.asistencia.models.Inscrito;
  */
 public interface InscritoService {
 
-    Inscrito save(Inscrito activiad);
+    Inscrito save(Inscrito inscrito);
 
     List<Inscrito> findAll();
 
@@ -22,5 +22,5 @@ public interface InscritoService {
 
     Inscrito getEntidadById(Long id);
 
-    Inscrito update(Inscrito activiad, Long id);
+    Inscrito update(Inscrito inscrito, Long id);
 }

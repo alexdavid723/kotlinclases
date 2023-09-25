@@ -12,6 +12,7 @@ import pe.edu.upeu.asistenciaupeujc.data.local.DbDataSource
 import pe.edu.upeu.asistenciaupeujc.data.local.dao.ActividadDao
 import pe.edu.upeu.asistenciaupeujc.data.local.dao.MaterialesxDao
 import pe.edu.upeu.asistenciaupeujc.data.remote.RestActividad
+import pe.edu.upeu.asistenciaupeujc.data.remote.RestInscrito
 import pe.edu.upeu.asistenciaupeujc.data.remote.RestMaterialesx
 import pe.edu.upeu.asistenciaupeujc.data.remote.RestUsuario
 import pe.edu.upeu.asistenciaupeujc.utils.TokenUtils
@@ -72,14 +73,14 @@ class DataSourceModule {
             .fallbackToDestructiveMigration().build()
     }
 
-    @Singleton
-    @Provides
-    fun actividadDao(db:DbDataSource):ActividadDao{
-        return db.actividadDao()
-    }
+
     @Singleton
     @Provides
     fun materialesxDao(db:DbDataSource): MaterialesxDao {
-        return db.materialesxDao()
+    return db.materialesxDao()
     }
-}
+    @Singleton
+    @Provides
+    fun restInscrito(retrofit: Retrofit): RestInscrito {
+        return retrofit.create(RestInscrito::class.java)
+    }}

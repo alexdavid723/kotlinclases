@@ -41,5 +41,13 @@ sealed class Destinations(
         }
     }
 
+    object InscritoUI: Destinations("inscritoUI", "adm.inscritos", Icons.Filled.DateRange)
+
+    object InscritoForm: Destinations("inscritoForm?inscrId={inscrId}", "Form inscrito", Icons.Filled.Add){
+        fun passId(inscrId:String?):String{
+            return "inscritoForm?inscrId=$inscrId"
+        }
+    }
+
 
 }
